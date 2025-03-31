@@ -3,6 +3,7 @@ node_modules
 
 # Database
 db/app.db
+db/test.db
 
 # Environment
 .env
