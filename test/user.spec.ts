@@ -27,14 +27,14 @@ describe('Users routes', () => {
   })
 
   it('should be able to list user meals', async () => {
-    const createUserTransactionsResponse = await request(app.server)
+    const createUserResponse = await request(app.server)
       .post('/users')
       .send({
         name: 'John Dohn',
       })
       .expect(201)
 
-    const cookies = createUserTransactionsResponse.get('Set-Cookie')
+    const cookies = createUserResponse.get('Set-Cookie')
 
     const userCookie = cookies?.find((cookie) => cookie.startsWith('user='))
     expect(userCookie).toBeDefined()
@@ -53,14 +53,14 @@ describe('Users routes', () => {
   })
 
   it('should be able to get user meals metrics', async () => {
-    const createUserTransactionsResponse = await request(app.server)
+    const createUserResponse = await request(app.server)
       .post('/users')
       .send({
         name: 'John Dohn',
       })
       .expect(201)
 
-    const cookies = createUserTransactionsResponse.get('Set-Cookie')
+    const cookies = createUserResponse.get('Set-Cookie')
 
     const userCookie = cookies?.find((cookie) => cookie.startsWith('user='))
     expect(userCookie).toBeDefined()
